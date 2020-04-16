@@ -12,10 +12,7 @@ removeemoticons <- function(x) {
 # remove short & long words
 library(ggrepel)
 removeLongWords<- function(x) gsub("\\b[[:alpha:]]{13,}\\b", "", x)
-removeShortWords<-function(x) {
-  x <- rm_nchar_words(x, "1,1")
-  return(x)
-}
+removeShortWords<-function(x) gsub("\\b\\w{1,2}\\b","", x)
 
 #remove url
 library(tm, tmap)
